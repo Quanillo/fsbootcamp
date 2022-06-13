@@ -2,37 +2,57 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 /*
-const Title = ({course}) => <h1>{course}</h1>
+const Header = ({course}) => <h1>{course}</h1>
 **/
 
-const Title = (props) => {
+const Header = (props) => {
   return <h1>{props.course}</h1>
 }
 
+
 const Content = (props) => {
-  return <p>{props.part} {props.ex}</p>
+  return (
+    <div>
+      <Part part = {props.parts[0].name} ex = {props.parts[0].exercises} /><br/>
+      <Part part = {props.parts[1].name} ex = {props.parts[1].exercises} /><br/>
+      <Part part = {props.parts[2].name} ex = {props.parts[2].exercises} /><br/>
+    </div>
+  )
+}
+
+const Part = (props) => {
+  const part = props.part + ' ' + props.ex
+  return part
 }
 
 const Total = (props) => {
-  return <p>{props.msg} {props.n1 + props.n2 + props.n3}</p>
+  return <p>{props.msg} {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
 }
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
-  const message = 'Number of exercises'
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ],
+    message: 'Number of exercises'
+  }
   return (
     <div>
-      <Title course = {course} /> 
-      <Content part = {part1} ex = {exercises1} />
-      <Content part = {part2} ex = {exercises2} />
-      <Content part = {part3} ex = {exercises3} />
-      <Total msg = {message} n1 = {exercises1} n2 = {exercises2} n3 = {exercises3} />
+      <Header course = {course.name} /> 
+      <Content parts = {course.parts} />
+      <Total msg = {course.message} parts = {course.parts} />
     </div>
   )
 }
