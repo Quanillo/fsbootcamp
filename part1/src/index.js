@@ -26,7 +26,7 @@ const Part = (props) => {
 }
 
 const Total = (props) => {
-  console.log('Porbando...')
+  console.log('Porbando más...')
   return <p>{props.msg} {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
 }
 
