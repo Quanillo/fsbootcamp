@@ -26,7 +26,7 @@ const Part = (props) => {
 }
 
 const Total = (props) => {
-  console.log('Porbando más...aun mas....y aun mas...:)')
+  console.log('Porbando más...aun mas....y aun mas...:?)')
   return <p>{props.msg} {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
 }
 
