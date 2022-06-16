@@ -26,6 +26,10 @@ const Part = (props) => {
 }
 
 const Total = (props) => {
+<<<<<<< HEAD
+=======
+  console.log('Porbando...')
+>>>>>>> 221c81a6b64bc69da5415cc75acad17ed4450880
   return <p>{props.msg} {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
 }
 
